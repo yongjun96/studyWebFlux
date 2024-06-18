@@ -23,6 +23,10 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path
+    implementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.9.0'
+
+
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
