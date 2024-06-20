@@ -74,6 +74,29 @@ public class HelloReactor {
                         () -> log.info("emit onComplete signal")
                 );
 
+        System.out.println("-----------------------------------5번---------------------------------------------------");
+
+        // just  -> 생성 연산자 / 입력으로 들어오는 데이터 -> 데이터 소스
+        Flux.just(6, 9, 13)
+                .map(num -> num % 2)
+                .subscribe(remainder -> log.info("remainder : "+ remainder));
+
+        System.out.println("-----------------------------------6번---------------------------------------------------");
+
+        Flux.fromArray(new Integer[]{3, 6, 7, 9})
+                .filter(num -> num > 6)
+                .map(num -> num * 2)
+                .subscribe(multiply -> log.info("multiply : "+ multiply));
+
+        System.out.println("-----------------------------------7번---------------------------------------------------");
+
+        // Mono를 두개 합치면 Flux로 다운 스트림 가능.
+        Flux<Object> flux =
+                Mono.justOrEmpty(null)
+                        .concatWith(Mono.justOrEmpty("Jobs"));
+
+        flux.subscribe(data -> log.info("result : "+ data));
+
     }
 
 }
