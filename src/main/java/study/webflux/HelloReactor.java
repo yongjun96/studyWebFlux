@@ -91,11 +91,24 @@ public class HelloReactor {
         System.out.println("-----------------------------------7번---------------------------------------------------");
 
         // Mono를 두개 합치면 Flux로 다운 스트림 가능.
+        // concatWith를 사용해서 2개의 Mono를 새로운 flux로 생성
         Flux<Object> flux =
                 Mono.justOrEmpty(null)
                         .concatWith(Mono.justOrEmpty("Jobs"));
 
         flux.subscribe(data -> log.info("result : "+ data));
+
+        System.out.println("-----------------------------------8번---------------------------------------------------");
+
+        // concat에 입력된 파라미터를 연결해주는 오퍼레이터
+        // 현재 예저에서 Mono를 사용해도 됨 (1씩만 넣고 있기 때문)
+        // collectList는 해당 concat에 들어 있는 파라미터들을 하나의 리스트로 묶어 주는 역할
+        Flux.concat(
+                Flux.just("Venus"),
+                Flux.just("Earth"),
+                Flux.just("Mars"))
+                .collectList()
+                .subscribe(planetList -> log.info("Solar System : "+ planetList));
 
     }
 
