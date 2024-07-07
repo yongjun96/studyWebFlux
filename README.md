@@ -1,3 +1,29 @@
+## Reactive Programming이란?
+
+- 특징
+    - 데이터 소스의 변경 → 데이터 전파
+    - **선언형** 프로그래밍 **패러다임** : 실행할 동작을 구체적으로 **명시하지 않고 목표만 정의**
+        - 대표 : **stream 방식** (필터 체인)
+    - 함수형 프로그래밍 기법 사용
+
+<br>
+
+---
+
+## Reactive Streams란?
+
+- 리엑티브 프로그래밍을 표준화한 명세
+    - **Publisher** ⇒ 데이터 **통제** **인터페이스**
+    - **Subscriber** ⇒ Publisher에서 **통제한 데이터를 구독**한 **인터페이스**
+    - **Subscription** ⇒ **구독을 정의**한 **인터페이스**
+    - **Processor** ⇒ **Publisher, Subscriber의 역할을 동시**에 하는 **인터페이스**
+- 구현체
+  - Reactor 사용
+
+<br>
+
+---
+
 ## Reactor란?
 
 - Reactor 타입
